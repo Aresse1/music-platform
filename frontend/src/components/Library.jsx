@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from "react"
 import {Track} from "./Track"
 import axios from "axios"
-import { CircularProgress } from "@mui/material"
 
 
 const Library = () => {
     const [tracks, setTracks] = useState([])
-    
 
     const fetchTracks = async () => {
-        setTimeout( async() => {
-            const response = await axios.get("http://localhost:5000/tracks/")
+        const response = await axios.get("http://localhost:5000/tracks/")
         setTracks(response.data)
-        }, 1000)
-        
     };
 
     useEffect(() => {
