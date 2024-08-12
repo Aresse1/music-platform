@@ -5,13 +5,8 @@ import { ObjectId } from "mongoose";
 import { CreateCommentDto } from "./dto/create-comment.dto";
 import { FileFieldsInterceptor } from "@nestjs/platform-express";
 import { UploadedFiles } from "@nestjs/common";
-<<<<<<< HEAD
 import { UseInterceptors } from "@nestjs/common"
-=======
-import { UseInterceptors } from "@nestjs/common";
-import { TUploadTrack } from "types/files";
-
->>>>>>> eef391cc050de82e07801676fd0e0e6c2790851d
+import { TUploadTrack } from "../../types/files";
 
 
 @Controller('/tracks')

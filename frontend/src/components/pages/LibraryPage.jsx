@@ -1,6 +1,5 @@
 import Library from "../Library"
-import AddTrack from "../UI/AddTrack"
-
+import BasicModal from "../UI/Modal"
 const LibraryPage = () => {
     
 
@@ -8,8 +7,7 @@ const LibraryPage = () => {
         <div>
             <h1>Library</h1>
             <Library/>
-                Добавить трек
-                <AddTrack/>
+               <BasicModal/>
         </div>
     )
 }

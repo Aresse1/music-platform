@@ -8,7 +8,7 @@ export type TrackDocument = Track & Document;
 @Schema()
 export class Track {
     @Prop()
-    trackName: string;
+    name: string;
 
     @Prop()
     artist: string;
