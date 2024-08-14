@@ -7,7 +7,7 @@ const LibraryPage = () => {
         <div>
             <h1>Library</h1>
             <Library/>
-               <BasicModal/>
+            <BasicModal/>
         </div>
     )
 }
