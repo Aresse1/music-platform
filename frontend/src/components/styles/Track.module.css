@@ -1,0 +1,32 @@
+*{ 
+    text-decoration: none;
+}
+.track {
+    display: flex;
+    margin: 3px;
+    transition-duration: .3s;
+    justify-content: center;
+    align-items: center;
+    border:none;
+    border-radius: 15px;
+}
+
+.track:hover {
+    background-color: var(--primary);
+    transition-duration: .3s;
+}
+
+.item {
+    color: var(--text-color);
+}
+
+.item2 {
+   color: rgb(136, 136, 136)
+}
+
+.picture{
+    border: none;
+    border-radius: 15px;
+    width: 70px;
+    height: 70px;
+}

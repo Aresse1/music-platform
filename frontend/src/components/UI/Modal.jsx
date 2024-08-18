@@ -1,9 +1,9 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import AddTrack from './AddTrack';
+import styles from '../styles/Modal.module.css'
 
 const style = {
   position: 'absolute',
@@ -18,13 +18,16 @@ const style = {
 };
 
 export default function BasicModal() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>Добавить</Button>
+      <button className={styles.Btn} onClick={handleOpen}>
+          <div className={styles.sign}>+</div>
+          <div className= {styles.text}>Create</div>
+      </button>
       <Modal
         open={open}
         onClose={handleClose}

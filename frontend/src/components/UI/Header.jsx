@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom'
 import '../styles/Header.css'
 import logo from './logo.ico' 
+import {Search} from "./Search"
 
 const Header = () => {
     return (
@@ -7,17 +9,18 @@ const Header = () => {
             <img className="header__logo" src={logo} alt="" />
             <nav className="header__nav">
                 <div className="header__nav-item">
-                    <a className="header__nav-item a" href="/">Home</a>
+                    <Link to="/" className="header__nav-item a">Home</Link>
                 </div>
                 <div className="header__nav-item">
-                    <a className="header__nav-item a" href="/library">Library</a>
+                    <Link to="/library" className="header__nav-item a">Library</Link>
                 </div>
                 <div className="header__nav-item">
-                    <a className="header__nav-item a" href="/library">Library</a>
+                    <Link to="/" className="header__nav-item a">Home</Link>
                 </div>
                 <div className="header__nav-item">
-                    <a className="header__nav-item a" href="/library">Library</a>
+                    <Link to="/" className="header__nav-item a">Home</Link>
                 </div>
+                <Search/>
             </nav>
         </div>
     )

@@ -1,15 +1,15 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import {LibraryPage} from "./pages/LibraryPage";
-import {TrackPage} from "./pages/TrackPage";
 import HomePage from "./pages/HomePage";
+import { SearchPage } from "./pages/SearchPage";
 
 const AppRouter = () => {
   return (
       <Routes>
         <Route path="/library" Component={LibraryPage} />
-        <Route path="/tracks/:id" Component={TrackPage} />
         <Route path="/" Component={HomePage} />
+        <Route path="/search/:id" Component={SearchPage}/>
       </Routes>
   );
 };

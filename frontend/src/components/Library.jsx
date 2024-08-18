@@ -27,8 +27,6 @@ const Library = () => {
                 picture={track.picture}
                 />
             ))}
-            
-            
         </div>
     )
 }

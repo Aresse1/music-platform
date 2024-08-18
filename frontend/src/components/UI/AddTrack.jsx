@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const AddTrack = () => {
     const [name , setName] = useState('')
@@ -59,20 +60,20 @@ return (
         onChange={(e) => setText(e.target.value)}
         value={text}
         />
-
+        <p>Picture</p>
         <input
         type="file"
         placeholder="Picture"
         onChange={handlePictureFile}
         />
-
+        <p>Audio</p>
         <input
         type="file"
         placeholder="Audio"
         onChange={handleAudioFile}
         />
 
-        <button onClick={handleSubmit}>Submit</button>
+        <button to="/library" onClick={handleSubmit}>Submit</button>
     </div>
     )
 }
