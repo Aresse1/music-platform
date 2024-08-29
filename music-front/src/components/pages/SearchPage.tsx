@@ -6,11 +6,11 @@ import { Ttrack } from "../../types/"
 
 const SearchPage = () => {
     const [sortedTracks, setSortedTracks] = useState<Ttrack[]>([])
-    
+    const apiUrl = import.meta.env.VITE_APP_API
     const { id } = useParams()
 
     const getTracks = async() => {
-        const response = await axios.get("http://localhost:5000/tracks/")
+        const response = await axios.get(apiUrl + "tracks")
         handleSearch(response.data)
     }
 
@@ -24,7 +24,7 @@ const SearchPage = () => {
                 }
             }
         }
-        console.log(sortedTracks)
+        console.log(sortedTracks) 
         setSortedTracks(sortedTracks)
     }
     
@@ -38,16 +38,17 @@ const SearchPage = () => {
         <div>
              {sortedTracks.map((track) => (
                 <Track 
-                key={track._id}
-                id={track._id}
-                name={track.name}
-                artist={track.artist}
-                text={track.text}
-                picture={track.picture}
+                    key={track._id}
+                    id={track._id}
+                    name={track.name}
+                    artist={track.artist}
+                    text={track.text}
+                    picture={track.picture}
+                    audio={track.audio}
                 />
             ))}
         </div>
     )
 }
 
-export {SearchPage}
+export { SearchPage }

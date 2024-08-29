@@ -1,26 +1,33 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const AddTrack = () => {
     const [name , setName] = useState('')
     const [artist, setArtist] = useState('')
     const [text, setText] = useState('')
-    const [picture, setPicture] =  useState(null)
-    const [audio, setAudio] = useState(null)
+    const [picture, setPicture] =  useState<File | null>(null)
+    const [audio, setAudio] = useState<File | null>(null)
+    const apiUrl = import.meta.env.VITE_APP_API
 
-    const handlePictureFile = (e) => {
-        const pictureFile = e.target.files[0]
-
-        if (pictureFile){
-            setPicture(pictureFile)
+    const handlePictureFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const pictureFiles = e.target.files
+            if (pictureFiles){
+                const pictureFile = pictureFiles[0]
+            
+            if(pictureFile){
+                setPicture(pictureFile)
+            }
         }
     }
 
-    const handleAudioFile = (e) => {
-        const audioFile = e.target.files[0]
-
-        if (audioFile){
-            setAudio(audioFile)
+    const handleAudioFile = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const audioFiles = e.target.files
+            if (audioFiles) {
+            const audioFile = audioFiles[0]
+            
+            if (audioFile){
+                setAudio(audioFile)
+            }
         }
     }
 
@@ -29,15 +36,19 @@ const AddTrack = () => {
         formData.append('name', name);
         formData.append('artist', artist);
         formData.append('text', text);
-        formData.append('picture', picture)
-        formData.append('audio', audio)
-        await fetch('http://localhost:5000/tracks', {
+        if (picture) {
+            formData.append('picture', picture)
+          }
+          if (audio) {
+            formData.append('audio', audio)
+          }
+        await fetch(apiUrl + 'tracks', {
             method: 'POST',
             body: formData
         })
         window.location.reload()
     }
-
+    
 return (
     <div>
         <input
@@ -73,7 +84,7 @@ return (
         onChange={handleAudioFile}
         />
 
-        <button to="/library" onClick={handleSubmit}>Submit</button>
+        <Link to="/library" onClick={handleSubmit}>Submit</Link>
     </div>
     )
 }

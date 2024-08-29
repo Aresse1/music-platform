@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import styles from "../styles/Search.module.css"
 import { Link } from "react-router-dom"
 
@@ -16,21 +16,21 @@ const Search = () => {
                 </g>
             </svg>
             <input
-            id="query"
-            className={styles.input} 
-            value={query} 
-            onChange={(e) => setQuery(e.target.value)} 
-            type="search"
-            placeholder="Search..."
-            name="searchbar"
+                id="query"
+                className={styles.input} 
+                value={query} 
+                onChange={(e) => setQuery(e.target.value)} 
+                type="search"
+                placeholder="Search..."
+                name="searchbar"
             />
             <Link to={`/search/${query}`}>
-            <p className={styles.button}>
-                Search
+                <p className={styles.button}>
+                    Search
                 </p>
             </Link>
         </div>
     )
 }
 
-export {Search}
+export { Search }

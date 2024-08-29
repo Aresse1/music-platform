@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
-import {Track} from "./Track"
+import { Track } from "./Track"
 import axios from "axios"
 import { Ttrack } from "../types/"
 
 
 const Library = () => {
     const [tracks, setTracks] = useState<Ttrack[]>([])
-
+    const apiUrl = import.meta.env.VITE_APP_API
     const fetchTracks = async () => {
-        const response = await axios.get("http://localhost:5000/tracks/")
+        const response = await axios.get(apiUrl + "tracks")
         setTracks(response.data)
     };
 
@@ -26,7 +26,7 @@ const Library = () => {
                 artist={track.artist}
                 text={track.text}
                 picture={track.picture}
-                audio={track.audio}
+                audio={track.audio} 
                 />
             ))}
         </div>

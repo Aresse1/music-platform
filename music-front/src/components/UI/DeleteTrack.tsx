@@ -1,14 +1,19 @@
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
-import classes from "../styles/DeleteButton.css";
+import { Link } from "react-router-dom";
+import classNames from 'classnames';
+import classes from "../styles/DeleteButton.module.css";
 
-const DeleteTrack = () => {
-  const { id } = useParams();
-  const apiUrl = "http://localhost:5000/";
+interface DeleteTrackProps {
+  id: string;
+}
+
+const DeleteTrack: React.FC<DeleteTrackProps> = ({ id }) => {
+  const apiUrl = import.meta.env.VITE_APP_API
 
 
   const handleDelete = async () => {
     try {
+      console.log(id);
       const response = await axios.delete(`${apiUrl}tracks/${id}`);
       console.log(response.data);
     } catch (error) {
@@ -19,12 +24,12 @@ const DeleteTrack = () => {
 
   return (
     <div>
-      <Link className="button" type="button" to="/library" onClick={handleDelete}>
+      <Link className={classes.button} type="button" to="/library" onClick={handleDelete}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 69 14"
-          className="svgIcon bin-top"
+          className={classNames(classes.svgIcon, classes.bin_top)}
         >
           <g clip-path="url(#clip0_35_24)">
             <path
@@ -43,7 +48,7 @@ const DeleteTrack = () => {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 69 57"
-          className="svgIcon bin-bottom"
+          className={classNames(classes.svgIcon, classes.bin_bottom)}
         >
           <g clip-path="url(#clip0_35_22)">
             <path

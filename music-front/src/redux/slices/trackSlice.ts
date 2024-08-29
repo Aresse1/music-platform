@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Itrack } from "../../types";
+
 
 const trackSlice = createSlice({
     name: 'track',
-    initialState: {
-        track: {},
+    initialState:{
+        track: {} as Itrack
     },
     reducers: {
         setTrack: (state, action) => {
