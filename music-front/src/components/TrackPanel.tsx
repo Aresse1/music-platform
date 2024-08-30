@@ -3,21 +3,41 @@ import { useState } from "react"
 import { useRef } from "react"
 import { useSelector } from 'react-redux';
 import { RootState } from "../redux/store";
-
-
+import Repeat from "./UI/icons/Repeat&Shuffle/Repeat";
+import Mute from "./UI/icons/Volume/Mute";
+import LowVolume from "./UI/icons/Volume/LowVolume";
+import MediumVolume from "./UI/icons/Volume/MediumVolume";
+import MaxVolume from "./UI/icons/Volume/MaxVolume";
+import NoneRepeat from "./UI/icons/Repeat&Shuffle/NoneRepeat";
+import Play from "./UI/icons/Play&Pause/Play";
+import Pause from "./UI/icons/Play&Pause/Pause";
+import Shuffle from "./UI/icons/Repeat&Shuffle/Shuffle";
+import Prev from "./UI/icons/Prev&Next/Prev";
+import Next from "./UI/icons/Prev&Next/Next";
 
 
 const TrackPanel = () => {
 const track = useSelector((state: RootState) => state.track.track)
 const apiUrl = import.meta.env.VITE_APP_API
-
 const [currentTime, setCurrentTime] = useState(0);
 const [duration, setDuration] = useState(0);
+const [volume, setVolume] = useState(50);
+const [isLooping, setIsLooping] = useState(false);
+const [isPlaying, setIsPlaying] = useState(false);
+const audioRef = useRef<HTMLAudioElement | null>(null);
+const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const newVolume = Number(e.target.value);
+
+setVolume(newVolume);
+  if (audioRef.current) {
+    audioRef.current.volume = newVolume / 100;
+  }
+};
 
 const handleTimeUpdate = () => {
-if (audioRef.current) {
-  setCurrentTime(audioRef.current.currentTime);
-}
+  if (audioRef.current) {
+    setCurrentTime(audioRef.current.currentTime);
+  }
 };
 
 const handleLoadedMetadata = () => {
@@ -34,66 +54,102 @@ const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
   }
 };
 
-const [isPlaying, setIsPlaying] = useState(false);
-const audioRef = useRef<HTMLAudioElement | null>(null);
-
 const handlePlayPause = () => {
 if (audioRef.current) {
+
   if (isPlaying) {
+    console.log(audioRef.current)
     audioRef.current.pause();
     setIsPlaying(false);
   } else {
     audioRef.current.play();
     setIsPlaying(true);
+    }
   }
-}
+};
+
+const handleRepeat = () => {
+  if (audioRef.current) {
+    audioRef.current.loop = !audioRef.current.loop;
+    setIsLooping(audioRef.current.loop);
+  }
 };
 
 
 
 return (
 
-  <div className={styles.panel}>
-      {/* <BackButton>❮</BackButton> */}
-      <img className={styles.picture} src={apiUrl + track.picture} alt={track.name} />
-      <div className={styles.item__container}>
-          <h3 className={styles.item}>{track.name}</h3>
-          <h3 className={styles.item2}>{track.artist}</h3>
-      </div>
-      <audio 
-          ref={audioRef} 
-          src={apiUrl + track.audio}
-          onTimeUpdate={handleTimeUpdate}
-          onLoadedMetadata={handleLoadedMetadata}/>
-      <div className={styles.time_container}>
-        <span className={styles.current_time}>{formatTime(currentTime)}</span>
-        <input
-          type="range"
-          min="0"
-          max={duration}
-          value={currentTime}
-          onChange={handleSeek}
-        />
-        <span className="duration">{formatTime(duration)}</span>
-      </div>
-      <button className={styles.button} onClick={handlePlayPause}>
-          {isPlaying ? 
-          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M52 26C52 40.3594 40.3594 52 26 52C11.6406 52 0 40.3594 0 26C0 11.6406 11.6406 0 26 0C40.3594 0 52 11.6406 52 26Z" fill="#D9D9D9"/>
-              <path d="M29 18C29 16.8954 29.8954 16 31 16C32.1046 16 33 16.8954 33 18V34C33 35.1046 32.1046 36 31 36C29.8954 36 29 35.1046 29 34V18Z" fill="black"/>
-              <path d="M19 18C19 16.8954 19.8954 16 21 16C22.1046 16 23 16.8954 23 18V34C23 35.1046 22.1046 36 21 36C19.8954 36 19 35.1046 19 34V18Z" fill="black"/>
-          </svg> : 
-          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M52 26C52 40.3594 40.3594 52 26 52C11.6406 52 0 40.3594 0 26C0 11.6406 11.6406 0 26 0C40.3594 0 52 11.6406 52 26Z" fill="#D9D9D9"/>
-              <path d="M36 24.2679C37.3333 25.0377 37.3333 26.9623 36 27.7321L22.5 35.5263C21.1667 36.2961 19.5 35.3338 19.5 33.7942V18.2058C19.5 16.6662 21.1667 15.7039 22.5 16.4737L36 24.2679Z" fill="#110303"/>
-          </svg>}
-    </button>
-  </div> 
-  )
+<div className={styles.panel}>
+
+  <img className={styles.picture} src={apiUrl + track.picture} alt={track.name} />
+
+  <div className={styles.item__container}>
+      <h3 className={styles.item}>{track.name}</h3>
+      <h3 className={styles.item2}>{track.artist}</h3>
+  </div>
+
+  <audio 
+      autoPlay={true}
+      ref={audioRef} 
+      src={apiUrl + track.audio}
+      onTimeUpdate={handleTimeUpdate}
+      onLoadedMetadata={handleLoadedMetadata}/>
+
+  <div className={styles.time_container}>
+    <div className={styles.controls}>
+      <span onClick={handleRepeat}>
+        <Shuffle  fill={isLooping ? "#D9D9D9" : "#9B9B9B"} />
+      </span>
+      <button className={styles.button}>
+        <Prev/>
+      </button>
+      <button className={styles.button} onClick={handlePlayPause} >
+        {isPlaying ? 
+        <Play/> : 
+        <Pause/>}
+      </button>
+      <button className={styles.button}>
+        <Next/>
+      </button>
+      <span  >
+        {isLooping ? (<Repeat/>) 
+        : (<NoneRepeat/>)}
+      </span>
+    </div>
+    {/* <span className={styles.current_time}>{formatTime(currentTime)}</span> */}
+    <input
+      className={styles.seekbar}
+      type="range"
+      min="0"
+      max={duration}
+      value={currentTime}
+      onChange={handleSeek}/>
+    {/* <span className="duration">{formatTime(duration)}</span> */}
+  </div>
+  <span className={styles.volume_icon}>
+    { volume === 0 ?(<Mute/>)
+    : volume <= 20 ? (<LowVolume/>)
+    : volume <=60 ?(<MediumVolume/>)
+    :(<MaxVolume/>)
+      }
+  </span>
+  <div className={styles.volume_control}>
+    <input
+      type="range"
+      id="volume"
+      min="0"
+      max="100"
+      value={volume}
+      onChange={handleVolumeChange}
+    />
+  </div>
+</div> 
+)
+
 }
-function formatTime(time: number) {
-  const minutes = Math.floor(time / 60);
-  const seconds = Math.floor(time % 60);
-  return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-}
+// function formatTime(time: number) {
+// const minutes = Math.floor(time / 60);
+// const seconds = Math.floor(time % 60);
+// return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+// }
 export {TrackPanel}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Track } from "./Track"
 import axios from "axios"
 import { Ttrack } from "../types/"
+import styles from "./styles/Library.module.css"
 
 
 const Library = () => {
@@ -17,7 +18,7 @@ const Library = () => {
     }, [])
         
     return (
-        <div className="library">
+        <div className={styles.container}>
            {tracks.map((track) => (
                 <Track 
                 key={track._id}

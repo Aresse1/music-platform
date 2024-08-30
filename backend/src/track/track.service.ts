@@ -12,9 +12,12 @@ import { FileService, FileType } from "src/file/file.service";
 @Injectable()
 export class TrackService {
 
-    constructor(@InjectModel(Track.name) private trackModel: Model<TrackDocument>,
-                @InjectModel(Comment.name) private commentModel: Model<CommentDocument>,
-                private fileService: FileService){}
+    constructor(
+        @InjectModel(Track.name) private trackModel: Model<TrackDocument>,
+        @InjectModel(Comment.name) private commentModel: Model<CommentDocument>,
+        private fileService: FileService
+    ){}
+
     async create (dto: CreateTrackDto, picture, audio): Promise<Track> {
         const audioPath = this.fileService.createFile(FileType.AUDIO, audio)
         const picturePath = this.fileService.createFile(FileType.IMAGE, picture)
@@ -42,6 +45,8 @@ export class TrackService {
 
     async delete (id: string): Promise<ObjectId> {
         const track = await this.trackModel.findByIdAndDelete(id)
+        await this.fileService.removeFile(track.audio)
+        await this.fileService.removeFile(track.picture)
         return track.id
     }
 

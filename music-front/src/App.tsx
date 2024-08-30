@@ -12,9 +12,11 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <BrowserRouter>
+          <div className="panel">
           <Header/>
-          <AppRouter/>
-          <TrackPanel/>
+            <AppRouter/>
+            <TrackPanel />
+          </div>
         </BrowserRouter>
       </Provider>
     </div> 
