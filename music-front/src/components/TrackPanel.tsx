@@ -23,14 +23,14 @@ const [currentTime, setCurrentTime] = useState(0);
 const [duration, setDuration] = useState(0);
 const [volume, setVolume] = useState(50);
 const [isLooping, setIsLooping] = useState(false);
-const [isPlaying, setIsPlaying] = useState(false);
+const [isPlaying, setIsPlaying] = useState(true);
 const audioRef = useRef<HTMLAudioElement | null>(null);
 const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 const newVolume = Number(e.target.value);
 
 setVolume(newVolume);
   if (audioRef.current) {
-    audioRef.current.volume = newVolume / 100;
+    audioRef.current.volume = newVolume / 1000;
   }
 };
 

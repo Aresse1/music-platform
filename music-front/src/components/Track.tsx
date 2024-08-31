@@ -10,8 +10,8 @@ const Track = (props: Itrack) => {
     const setTrack = () => dispatch(trackActions.setTrack(props))
 
     return (
-        <div className={styles.track}>
-            <img onClick={setTrack} className={styles.picture} src={apiUrl + props.picture} alt="#" />
+        <div onClick={setTrack} className={styles.track}>
+            <img  className={styles.picture} src={apiUrl + props.picture} alt="#" />
             <div className={styles.items}>
                 <h2 className={styles.item}>{props.name}</h2>
                 <p className={styles.item2}>{props.artist}</p>

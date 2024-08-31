@@ -11,15 +11,13 @@
     border-radius: 15px;
     width: 100%;
     cursor: pointer;
+    transition-duration: 0.5s;
 }
 
 .track:hover {
-    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
-    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(20px);
-    background: linear-gradient(133.50deg, rgba(255, 255, 255, 0.4) 1.095%,rgba(255, 255, 255, 0.2) 99.203%);
-    
+    background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0.1) 100%);
 }
 
 .items {
@@ -33,7 +31,7 @@
 }
 
 .item2 {
-   color: rgb(136, 136, 136)
+   color: #BBBBBB;
 }
 
 .picture{

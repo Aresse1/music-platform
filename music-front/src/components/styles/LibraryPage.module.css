@@ -3,8 +3,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-decoration: none;
-    width: 96%;
-    height: 70%;
+    margin: 1.2%;
+    width: 86%;
+    height: 95%;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    background: linear-gradient(90.00deg, rgba(53, 53, 53, 0.4) 0.617%,rgba(53, 53, 53, 0.4) 100%);
 }

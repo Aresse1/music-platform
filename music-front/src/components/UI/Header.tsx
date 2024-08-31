@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom'
 import '../styles/Header.css'
-import logo from './logo.ico' 
-import {Search} from "./Search"
+// import logo from './logo.ico' 
 
 const Header = () => {
     return (
         <div className="header">
-            <img className="header__logo" src={logo} alt="" />
-            <nav className="header__nav">
+            {/* <img className="header__logo" src={logo} alt="" /> */}
+            <div className="header__nav">
                 <div className="header__nav-item">
                     <Link to="/" className="header__nav-item a">Home</Link>
                 </div>
@@ -20,8 +19,7 @@ const Header = () => {
                 <div className="header__nav-item">
                     <Link to="/" className="header__nav-item a">Home</Link>
                 </div>
-                <Search/>
-            </nav>
+            </div>
         </div>
     )
 }
