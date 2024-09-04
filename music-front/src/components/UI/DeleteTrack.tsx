@@ -16,6 +16,9 @@ const DeleteTrack: React.FC<DeleteTrackProps> = ({ id }) => {
       console.log(id);
       const response = await axios.delete(`${apiUrl}tracks/${id}`);
       console.log(response.data);
+
+
+      
     } catch (error) {
       console.error(error);
     }
