@@ -7,11 +7,11 @@
 .panel {
   position: absolute;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  width: 70%;
-  height: 10%;
-  top: 89%;
+  justify-content: center;
+  width: 96%;
+  height: 9%;
+  top: 90%;
   box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
@@ -22,17 +22,20 @@
 
 .item__container {
     display: flex;
-    margin-left: 10px;
+    margin-left: 2%;
     flex-direction: column;
 }
 
+
+
 .picture {
     border-radius: 10px;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
 }
 
 .item {
+  font-size: 14px;
     display: flex;
     text-decoration: none;
     border: #fff;
@@ -42,6 +45,7 @@
 }
 
 .item2 {
+  font-size: 10px;
     color: rgb(136, 136, 136)
 }
 
@@ -58,7 +62,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    margin: 0;
+    padding: 0;
+} 
 
 .volume_control {
     margin: 10px;
@@ -72,7 +78,6 @@
   
   .volume_control input[type="range"] {
     width: 100%;
-    height: 20px;
     margin: 0;
     padding: 0;
     border: none;
@@ -102,11 +107,17 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
+  .control_container {
+    width: 40%;
+  }
+
   .controls{
     display: flex;
     align-items: center;
+    width: 40%;
+    height: 40px;
   }
 
   .seekbar {
-    width: 130%;
+    width: 50%;
   }

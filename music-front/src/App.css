@@ -23,10 +23,11 @@
 
 .main_window {
   display: flex;
-  margin-top: 1.3%;
-  width: 97%;
-  height: 86%;
-  justify-content: space-around;
+  
+  justify-content: center;
+  align-items: flex-end;
+  width: 96%;
+  height: 89%;
   box-sizing: border-box;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;

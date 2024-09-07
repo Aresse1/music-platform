@@ -56,9 +56,7 @@ const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
 
 const handlePlayPause = () => {
 if (audioRef.current) {
-
   if (isPlaying) {
-    console.log(audioRef.current)
     audioRef.current.pause();
     setIsPlaying(false);
   } else {
@@ -80,22 +78,19 @@ const handleRepeat = () => {
 return (
 
 <div className={styles.panel}>
-
-  <img className={styles.picture} src={apiUrl + track.picture} alt={track.name} />
-
+      <img className={styles.picture} src={apiUrl + track.picture} alt={track.name} />
   <div className={styles.item__container}>
-      <h3 className={styles.item}>{track.name}</h3>
-      <h3 className={styles.item2}>{track.artist}</h3>
+      <p className={styles.item}>{track.name}</p>
+      <p className={styles.item2}>{track.artist}</p>
   </div>
-
   <audio 
       autoPlay={true}
       ref={audioRef} 
       src={apiUrl + track.audio}
       onTimeUpdate={handleTimeUpdate}
       onLoadedMetadata={handleLoadedMetadata}/>
+  <div className={styles.control_container}>
 
-  <div className={styles.time_container}>
     <div className={styles.controls}>
       <span onClick={handleRepeat}>
         <Shuffle  fill={isLooping ? "#D9D9D9" : "#9B9B9B"} />
@@ -116,7 +111,6 @@ return (
         : (<NoneRepeat/>)}
       </span>
     </div>
-    {/* <span className={styles.current_time}>{formatTime(currentTime)}</span> */}
     <input
       className={styles.seekbar}
       type="range"
@@ -124,8 +118,8 @@ return (
       max={duration}
       value={currentTime}
       onChange={handleSeek}/>
-    {/* <span className="duration">{formatTime(duration)}</span> */}
   </div>
+  
   <span className={styles.volume_icon}>
     { volume === 0 ?(<Mute/>)
     : volume <= 20 ? (<LowVolume/>)
@@ -145,7 +139,6 @@ return (
   </div>
 </div> 
 )
-
 }
 // function formatTime(time: number) {
 // const minutes = Math.floor(time / 60);
