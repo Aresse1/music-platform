@@ -119,14 +119,13 @@ return (
       value={currentTime}
       onChange={handleSeek}/>
   </div>
-  
-  <span className={styles.volume_icon}>
-    { volume === 0 ?(<Mute/>)
-    : volume <= 20 ? (<LowVolume/>)
-    : volume <=60 ?(<MediumVolume/>)
-    :(<MaxVolume/>)
+    <span className={styles.volume_icon}>
+      { volume === 0 ?(<Mute/>)
+      : volume <= 30 ? (<LowVolume/>)
+      : volume <=70 ?(<MediumVolume/>)
+      :(<MaxVolume/>)
       }
-  </span>
+    </span>
   <div className={styles.volume_control}>
     <input
       type="range"
