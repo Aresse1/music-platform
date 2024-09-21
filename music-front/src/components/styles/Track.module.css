@@ -1,42 +1,35 @@
 *{ 
     text-decoration: none;
 }
+
+@media screen and (min-width: 360px) {
 .track {
     display: flex;
-    margin: 3px;
-    transition-duration: .3s;
-    justify-content: space-between;
     align-items: center;
-    border:none;
-    border-radius: 15px;
-    width: 100%;
-    cursor: pointer;
-    transition-duration: 0.5s;
+    justify-content: space-between;
+    margin: 2%;
+    width: 95%;
 }
 
 .track:hover {
-    border-radius: 20px;
     backdrop-filter: blur(20px);
     background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0.1) 100%);
 }
 
 .items {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    
 }
 
 .item {
-    color: var(--text-color);
+   font-size: 115%;
 }
 
 .item2 {
-   color: #BBBBBB;
+    font-size: 85%;
 }
 
 .picture{
-    border: none;
-    border-radius: 15px;
-    width: 70px;
-    height: 70px;
+   width: 15%;
+   border-radius: 20%;
+}
 }

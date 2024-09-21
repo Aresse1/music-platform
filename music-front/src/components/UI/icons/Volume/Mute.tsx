@@ -1,6 +1,6 @@
 const Mute = () => {
     return (
-        <svg width="26" height="35" viewBox="0 0 46 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="26" height="32" viewBox="0 0 46 54" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="20" height="2.94617" rx="1.47309" transform="matrix(0.707107 0.707107 -0.717586 0.69647 31.8578 19.3545)" fill="#D9D9D9"/>
         <rect width="20" height="2.94787" rx="1.47393" transform="matrix(-0.707107 0.707107 -0.717555 -0.696502 45.9491 21.407)" fill="#D9D9D9"/>
         <rect x="1.35199" y="15.7352" width="21.8938" height="23.9776" rx="7" fill="#D9D9D9"/>

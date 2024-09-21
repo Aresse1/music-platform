@@ -6,9 +6,8 @@ const LibraryPage = () => {
     
     return (
         <div className={styles.container}>
-            <h1 >Library</h1>
             <Library/>
-            <BasicModal/>
+            {/* <BasicModal/> */}
         </div>
     )
 }

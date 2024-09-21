@@ -30,7 +30,7 @@ const newVolume = Number(e.target.value);
 
 setVolume(newVolume);
   if (audioRef.current) {
-    audioRef.current.volume = newVolume / 1000;
+    audioRef.current.volume = newVolume / 200;
   }
 };
 
@@ -92,7 +92,7 @@ return (
   <div className={styles.control_container}>
 
     <div className={styles.controls}>
-      <span onClick={handleRepeat}>
+      <span >
         <Shuffle  fill={isLooping ? "#D9D9D9" : "#9B9B9B"} />
       </span>
       <button className={styles.button}>
@@ -106,7 +106,7 @@ return (
       <button className={styles.button}>
         <Next/>
       </button>
-      <span  >
+      <span onClick={handleRepeat}>
         {isLooping ? (<Repeat/>) 
         : (<NoneRepeat/>)}
       </span>
