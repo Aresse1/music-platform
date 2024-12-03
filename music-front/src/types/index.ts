@@ -1,5 +1,5 @@
 export type Ttrack = {
-    _id: string
+    id: string
     name: string
     artist: string
     text: string

@@ -11,6 +11,7 @@ const Library = () => {
     const fetchTracks = async () => {
         const response = await axios.get(apiUrl + "tracks")
         setTracks(response.data)
+        console.log(response.data)
     };
 
     useEffect(() => {
@@ -21,8 +22,8 @@ const Library = () => {
         <div className={styles.container}>
            {tracks.map((track) => (
                 <Track 
-                key={track._id}
-                id={track._id}
+                key={track.id}
+                id={track.id}
                 name={track.name}
                 artist={track.artist}
                 text={track.text}

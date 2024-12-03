@@ -38,8 +38,8 @@ const SearchPage = () => {
         <div>
              {sortedTracks.map((track) => (
                 <Track 
-                    key={track._id}
-                    id={track._id}
+                    key={track.id}
+                    id={track.id}
                     name={track.name}
                     artist={track.artist}
                     text={track.text}

@@ -21,7 +21,7 @@ export class FileService {
             fs.writeFileSync(path.resolve(filePath, fileName), file.buffer)
             return type + '/' + fileName
         }catch (e) {
-            throw new HttpException(e.message, HttpStatus.INTERNAL_SERVER_ERROR)
+            throw new HttpException('Произошла ошибка при записи', HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
 
@@ -35,7 +35,7 @@ export class FileService {
               throw new HttpException(`File not found: ${fileName}`, HttpStatus.NOT_FOUND);
             }
           } catch (error) {
-            throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new HttpException('Произошла ошибка при удалении', HttpStatus.INTERNAL_SERVER_ERROR);
           }
         }
 }

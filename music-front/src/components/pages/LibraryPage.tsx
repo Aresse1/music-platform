@@ -7,7 +7,7 @@ const LibraryPage = () => {
     return (
         <div className={styles.container}>
             <Library/>
-            {/* <BasicModal/> */}
+            <BasicModal/>
         </div>
     )
 }

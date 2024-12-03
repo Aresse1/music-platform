@@ -1,6 +1,5 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
-import classNames from 'classnames';
 import classes from "../styles/DeleteButton.module.css";
 
 interface DeleteTrackProps {
@@ -13,9 +12,7 @@ const DeleteTrack: React.FC<DeleteTrackProps> = ({ id }) => {
 
   const handleDelete = async () => {
     try {
-      console.log(id);
-      const response = await axios.delete(`${apiUrl}tracks/${id}`);
-      console.log(response.data);
+     await axios.delete(`${apiUrl}tracks/${id}`);
 
 
       
