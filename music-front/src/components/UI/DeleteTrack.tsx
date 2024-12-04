@@ -9,7 +9,6 @@ interface DeleteTrackProps {
 const DeleteTrack: React.FC<DeleteTrackProps> = ({ id }) => {
   const apiUrl = import.meta.env.VITE_APP_API
 
-
   const handleDelete = async () => {
     try {
      await axios.delete(`${apiUrl}tracks/${id}`);
