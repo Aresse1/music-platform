@@ -13,11 +13,7 @@
 
 .track:hover {
     backdrop-filter: blur(20px);
-    background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0.1) 100%);
-}
-
-.items {
-    
+    background: rgba(217, 217, 217, 0.41);
 }
 
 .item {

@@ -1,9 +1,8 @@
 const Play = () => {
     return (
-        <svg width="35" height="35" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M52 26C52 40.3594 40.3594 52 26 52C11.6406 52 0 40.3594 0 26C0 11.6406 11.6406 0 26 0C40.3594 0 52 11.6406 52 26Z" fill="#D9D9D9"/>
-            <path d="M29 18C29 16.8954 29.8954 16 31 16C32.1046 16 33 16.8954 33 18V34C33 35.1046 32.1046 36 31 36C29.8954 36 29 35.1046 29 34V18Z" fill="black"/>
-            <path d="M19 18C19 16.8954 19.8954 16 21 16C22.1046 16 23 16.8954 23 18V34C23 35.1046 22.1046 36 21 36C19.8954 36 19 35.1046 19 34V18Z" fill="black"/>
+        <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="7.04829" y="4.1507" width="8.38718" height="27.6986" rx="2" fill="black" />
+        <rect x="21.1125" y="4.1507" width="8.38718" height="27.6986" rx="2" fill="black" />
         </svg>
     )
 }

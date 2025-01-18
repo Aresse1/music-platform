@@ -10,6 +10,3 @@ const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>
 export * from "./slices/trackSlice"
 export {store}
-
-
-

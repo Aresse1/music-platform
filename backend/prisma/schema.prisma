@@ -33,6 +33,7 @@ model Track {
   id      String   @default(cuid()) @id
   name    String
   artist  String
+  liked   Boolean? @default(false)
   text    String
   listens Int      @default(0) 
   picture String

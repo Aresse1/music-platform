@@ -1,31 +1,25 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import '../styles/Header.css'
-import MenuIcon from './icons/Menu'
+import styles from '../styles/Header.module.css'
+import Home from './icons/HeaderPhone/Home'
+import NoneLiked from './icons/Liked/NoneLiked'
+import Settings from './icons/HeaderPhone/Settings'
+
+
 
 
 const Header = () => {
-    const [menuActive, setMenuActive] = useState(false);
-
-    const handleOpen = () => {
-        setMenuActive(!menuActive)
-    };
 
     return (
-        <div className="header">
-            <button className="menu_button" onClick={handleOpen}>
-                <MenuIcon/>
-            </button>
-            {menuActive ?  (
-                <div className="menu_hidden">
-                    <p  className="header__nav-item">
-                        <Link to="/" className="header__nav-item a">Home</Link>
-                    </p>
-                    <p className="header__nav-item">
-                        <Link to="/library" className="header__nav-item a">Library</Link>
-                    </p>
-                </div>
-            ): null}
+        <div className={styles.header}>
+            <div>
+                <Link to="/"><Home/></Link>
+            </div>
+            <div>
+                <Link to="/library"><NoneLiked/></Link>
+            </div>
+            <div>
+                <Link to="/settings"><Settings/></Link>
+            </div>
         </div>
     )
 }
